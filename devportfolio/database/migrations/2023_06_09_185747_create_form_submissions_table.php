@@ -18,8 +18,8 @@ return new class extends Migration
             $table->integer('RateNavigation');
             $table->integer('RateCleanAndSimple');
             $table->integer('RateUserExperience');
-            $table->string('AnythingToAdd');
-            $table->string('OpenRemark');
+            $table->string('AnythingToAdd')->nullable()->default('');
+            $table->string('OpenRemark')->nullable()->default('');
             $table->timestamps();
         });
     }

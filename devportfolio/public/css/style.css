@@ -73,6 +73,53 @@ progress{width: 400px;}
 .articlebackground{background-color: white;}
 
 
+/* Form */
+.basicform {
+    width: 400px;
+    margin: 0 auto;
+}
+
+/* Style the labels */
+.basicform label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: black;
+}
+
+/* Style the inputs */
+.basicform input[type="number"],
+.basicform input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+/* Style the submit button */
+.basicform button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.basicform button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.alert.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 4px;
+}
+
 /*Error message*/
 a.homelink {
     color: white;
