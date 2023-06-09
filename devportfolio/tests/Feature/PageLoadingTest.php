@@ -37,4 +37,14 @@ class PageLoadingTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    /**
+     * Test that the proper page loads with a 404 error
+     */
+    public function testError404Page(): void
+    {
+        $response = $this->get('/UwU');
+
+        $response->assertStatus(404);
+    }
 }
