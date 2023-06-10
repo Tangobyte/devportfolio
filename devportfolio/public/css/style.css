@@ -79,6 +79,18 @@ progress{width: 400px;}
     margin: 0 auto;
 }
 
+/* Text */
+.basicform .formText{
+    color: black; /* Example color */
+    font-size: 16px; /* Example font size */
+}
+
+.basicform .formTitle{
+    color: black; /* Example color */
+    font-weight: bold; /* Example font weight */
+    font-size: 20px; /* Example font size */
+}
+
 /* Style the labels */
 .basicform label {
     display: block;
@@ -96,6 +108,19 @@ progress{width: 400px;}
     border-radius: 4px;
     box-sizing: border-box;
     margin-bottom: 10px;
+}
+
+/* Text area input*/
+.basicform textarea {
+    width: 100%;
+    height: 100px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 14px;
+    color: #333;
 }
 
 /* Style the submit button */
@@ -116,6 +141,14 @@ progress{width: 400px;}
     background-color: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.alert.alert-success {
+    background-color: darkseagreen;
+    color: green;
+    border: 1px solid lightgreen;
     padding: 10px;
     border-radius: 4px;
 }

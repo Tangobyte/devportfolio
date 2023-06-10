@@ -1,18 +1,19 @@
 @extends('layout')
 
 @section('content')
-    <h1>Form</h1>
+    <h1>Website survey</h1>
 
     <article>
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
-        <p class="basicform">Please rate the following questions between 1 and 10 with 10 being very satisfactory.<br><br></p>
 
     <form class="basicform" method="POST" action="{{ route('form.store') }}">
         @csrf
+        <p class="formTitle">If you wanted to leave some feedback about the website you can fill in this form.<br></p>
+        <p class="formText">Please rate the following questions between 1 and 10 with 10 being very satisfactory.<br></p>
         <div>
-            <label for="rate_attractiveness">*Rate attractiveness:</label>
+            <label for="rate_attractiveness">*Rate website attractiveness:</label>
             <input type="number" name="RateAttractiveness" id="rate_attractiveness" value="{{ old('RateAttractiveness') }}" required>
             @error('RateAttractiveness')
             <div class="alert alert-danger">{{ $errors->first('RateAttractiveness') }}</div>
@@ -26,7 +27,7 @@
             @enderror
         </div>
         <div>
-            <label for="rate_navigation">*Rate navigation:</label>
+            <label for="rate_navigation">*Rate website easy of navigation:</label>
             <input type="number" name="RateNavigation" id="rate_navigation" value="{{ old('RateNavigation') }}" required>
             @error('RateNavigation')
             <div class="alert alert-danger">{{ $errors->first('RateNavigation') }}</div>
@@ -46,20 +47,22 @@
             <div class="alert alert-danger">{{ $errors->first('RateUserExperience') }}</div>
             @enderror
         </div>
+        <p class="formText">If you have any additional remarks leave them here:<br></p>
         <div>
             <label for="anything_to_add">Anything to add:</label>
-            <input type="text" name="AnythingToAdd" id="anything_to_add" value="{{ old('AnythingToAdd') }}">
+            <textarea name="AnythingToAdd" id="anything_to_add">{{ old('AnythingToAdd') }}</textarea>
             @error('AnythingToAdd')
             <div class="alert alert-danger">{{ $errors->first('AnythingToAdd') }}</div>
             @enderror
         </div>
         <div>
             <label for="open_remark">Open remark:</label>
-            <input type="text" name="OpenRemark" id="open_remark" value="{{ old('OpenRemark') }}">
+            <textarea name="OpenRemark" id="open_remark">{{ old('OpenRemark') }}</textarea>
             @error('OpenRemark')
             <div class="alert alert-danger">{{ $errors->first('OpenRemark') }}</div>
             @enderror
         </div>
+        <p class="formText">Please keep it short there is a maximum limit of 100 characters.<br></p>
         <button type="submit">Submit</button>
     </form>
     </article>
