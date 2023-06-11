@@ -47,4 +47,14 @@ class PageLoadingTest extends TestCase
 
         $response->assertStatus(404);
     }
+
+    /**
+     * Test the form page
+     */
+    public function testFormPage(): void
+    {
+        $response = $this->get('/form');
+
+        $response->assertStatus(200);
+    }
 }
