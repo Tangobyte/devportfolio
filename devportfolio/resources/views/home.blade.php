@@ -15,6 +15,8 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                        <br>
+                        <a href='/secure' class="{{ Request::path() === 'secure' ? 'active_page' : '' }}">To Form overview</a>
                 </div>
             </div>
         </div>

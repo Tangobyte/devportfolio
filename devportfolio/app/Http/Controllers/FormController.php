@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\FormSubmission;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FormController extends Controller
 {
@@ -47,5 +48,55 @@ class FormController extends Controller
         // Optionally, you can perform additional actions here (e.g., sending emails, notifications, etc.)
 
         return redirect()->back()->with('success', 'Form submitted successfully!');
+    }
+
+    public function showOverview()
+    {
+        $submissions = DB::table('form_submissions')->get();
+
+        return view('auth.formoverview', ['submissions' => $submissions]);
+    }
+
+    public function show($id)
+    {
+        $submission = DB::table('form_submissions')->find($id);
+
+        return view('auth.formshow', ['submission' => $submission]);
+    }
+
+    public function edit($id)
+    {
+        $submission = DB::table('form_submissions')->find($id);
+
+        return view('auth.formedit', ['submission' => $submission]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data = $request->only([
+            'RateAttractiveness',
+            'RateEasyOfUse',
+            'RateNavigation',
+            'RateCleanAndSimple',
+            'RateUserExperience',
+            'AnythingToAdd',
+            'OpenRemark',
+        ]);
+
+        DB::table('form_submissions')->where('id', $id)->update($data);
+
+        return redirect()->route('form.show', $id)->with('success', 'Form result updated successfully.');
+    }
+
+    public function destroy($id)
+    {
+        // Find the form result by ID
+        $submission = FormSubmission::findOrFail($id);
+
+        // Delete the form result
+        $submission->delete();
+
+        // Redirect back to the overview page with a success message
+        return redirect()->route('auth.formoverview')->with('success', 'Form result deleted successfully.');
     }
 }
