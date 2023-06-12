@@ -28,3 +28,7 @@ Route::get('/form', [FormController::class, 'index']);
 Route::post('/form', [FormController::class, 'store'])->name('form.store');
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
