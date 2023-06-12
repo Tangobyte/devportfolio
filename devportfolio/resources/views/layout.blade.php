@@ -17,10 +17,7 @@
                 <li><a href='/' class="{{ Request::path() === 'Homepage' ? 'active_page' : '' }}">Home page</a></li>
                 <li><a href='/profile' class="{{ Request::path() === 'Profile' ? 'active_page' : '' }}">My profile</a></li>
                 <li><a href='/dashboard' class="{{ Request::path() === 'Dashboard' ? 'active_page' : '' }}">Dashboard</a></li>
-                <li><a href='/faq' class="{{ Request::path() === 'FAQ' ? 'active_page' : '' }}">Frequently asked questions</a></li>
-                <li><a href='/blog' class="{{ Request::path() === 'Blog' ? 'active_page' : '' }}">My Blog</a></li>
-                <li><a href='/articles' class="{{ Request::path() === 'Articles' ? 'active_page' : '' }}">Articles</a></li>
-                <li><a href='/grades' class="{{ Request::path() === 'Grades' ? 'active_page' : '' }}">Grades</a></li>
+                <li><a href='/login' class="{{ Request::path() === 'auth.login' ? 'active_page' : '' }}">Login</a></li>
             </ul>
         </nav>
     </header>
